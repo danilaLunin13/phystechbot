@@ -1,2 +1,0 @@
-[2021-01-27 18:12:45,117] [ERROR] => can only concatenate list (not "str") to list
-can only concatenate list (not "str") to list
