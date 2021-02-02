@@ -1,1 +1,0 @@
-worker: python New_Bot.py
