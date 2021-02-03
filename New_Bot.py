@@ -86,7 +86,7 @@ keyboard_3_semester.add_button("Диф. уравнения", color=VkKeyboardCol
 keyboard_3_semester.add_line()
 keyboard_3_semester.add_button("Главное меню", color=VkKeyboardColor.NEGATIVE)
 
-# 3 семестр
+# 4 семестр
 
 keyboard_4_semester = VkKeyboard(one_time=True)
 keyboard_4_semester.add_button("Оптика", color=VkKeyboardColor.PRIMARY)
@@ -197,7 +197,7 @@ while True:
                     Search += reseived_message.lower()
 
                 elif reseived_message.lower() == "4 семестр":
-                    write_message2(sender, "Далее", keyboard_3_semester)
+                    write_message2(sender, "Далее", keyboard_4_semester)
                     lastkeyboard = keyboard_3_semester
                     Search += reseived_message.lower()
 
