@@ -86,6 +86,21 @@ keyboard_3_semester.add_button("Диф. уравнения", color=VkKeyboardCol
 keyboard_3_semester.add_line()
 keyboard_3_semester.add_button("Главное меню", color=VkKeyboardColor.NEGATIVE)
 
+# 3 семестр
+
+keyboard_4_semester = VkKeyboard(one_time=True)
+keyboard_4_semester.add_button("Оптика", color=VkKeyboardColor.PRIMARY)
+keyboard_4_semester.add_line()
+keyboard_4_semester.add_button("Гармонический анализ", color=VkKeyboardColor.PRIMARY)
+keyboard_4_semester.add_line()
+keyboard_4_semester.add_button("Анал. механика", color=VkKeyboardColor.PRIMARY)
+keyboard_4_semester.add_line()
+keyboard_4_semester.add_button("Диф. уравнения(прод.)", color=VkKeyboardColor.PRIMARY)
+keyboard_4_semester.add_line()
+keyboard_4_semester.add_button("Теор. вероятностей", color=VkKeyboardColor.PRIMARY)
+keyboard_4_semester.add_line()
+keyboard_4_semester.add_button("Главное меню", color=VkKeyboardColor.NEGATIVE)
+
 # подробно о предмете
 
 keyboard_Subject_1 = VkKeyboard(one_time=True)
@@ -124,6 +139,7 @@ Semesters = ["2 семестр", "3 семестр", "4 семестр"]
 Subjects_T2 = ["Многомерный анализ"]
 Subjects_2 = ["Термодинамика" ,"Линейная алгебра"]
 Subjects_3 = ["Электричество", "Кратные интегралы", "Теор. механика", "Диф. уравнения"]
+Subjects_4 = ["Оптика", "Гармонический анализ", "Анал. механика", "Диф. уравнения(прод.)", "Теор. вероятностей"]
 
 # связь с сообществом
 
@@ -162,6 +178,8 @@ while True:
                                    "Я твой путеводитель по космическим просторам!", keyboard_Main_Menu)
                     lastkeyboard = keyboard_Main_Menu
 
+                # действия кнопок
+
                 elif reseived_message.lower() == "главное меню":
                     write_message2(sender,
                                    "Главное меню", keyboard_Main_Menu)
@@ -178,7 +196,14 @@ while True:
                     lastkeyboard = keyboard_3_semester
                     Search += reseived_message.lower()
 
-                elif Subjects_2.count(reseived_message) == 1 or Subjects_3.count(reseived_message) == 1:
+                elif reseived_message.lower() == "4 семестр":
+                    write_message2(sender, "Далее", keyboard_3_semester)
+                    lastkeyboard = keyboard_3_semester
+                    Search += reseived_message.lower()
+
+                elif Subjects_2.count(reseived_message) == 1 \
+                        or Subjects_3.count(reseived_message) == 1\
+                        or Subjects_4.count(reseived_message) == 1:
                     write_message2(sender, "Далее", keyboard_Subject_1)
                     lastkeyboard = keyboard_Subject_1
                     Search += "_" + reseived_message.lower()
@@ -215,6 +240,9 @@ while True:
                         elif Search == "3 семестр":
                             write_message2(sender, "Назад", keyboard_3_semester)
                             lastkeyboard = keyboard_3_semester
+                        elif Search == "4 семестр":
+                            write_message2(sender, "Назад", keyboard_4_semester)
+                            lastkeyboard = keyboard_4_semester
                     else:
                         write_message2(sender,
                                        "Главное меню", keyboard_Main_Menu)
