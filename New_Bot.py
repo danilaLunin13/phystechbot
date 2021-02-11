@@ -163,14 +163,9 @@ while True:
 
             # идендификаторы пользователей
 
-            if authorise.method("groups.getMembers", {"group_id": 201631051})["count"] != Last_Count_Users:
-                Users = authorise.method("groups.getMembers", {"group_id": 201631051})
-                Id_Users = Users["items"]
-                Last_Count_Users = Users["count"]
-
             # проверка сообщений
 
-            if event.type == VkEventType.MESSAGE_NEW and event.to_me and Id_Users.count(event.user_id) == 1:
+            if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                 reseived_message = event.text
                 sender = event.user_id
                 if reseived_message.lower() == "привет":
