@@ -35,6 +35,23 @@ def write_message3(sender, files):
                       "attachment": "," .join(attachments),
                       "keyboard": keyboard_Main_Menu.get_keyboard()})
 
+# проверка пользователя
+
+def Find_User(li, x):
+    i = 0
+    j = len(li)-1
+    m = int(j/2)
+    while li[m] != x and i <= j:
+        if x > li[m]:
+            i = m+1
+        else:
+            j = m-1
+        m = int((i+j)/2)
+    if i > j:
+        return False
+    else:
+        return True
+
 # поиск файлов
 
 def find_files(search):
@@ -170,7 +187,7 @@ while True:
 
             # проверка сообщений
 
-            if event.type == VkEventType.MESSAGE_NEW and event.to_me and Id_Users.count(event.user_id) == 1:
+            if event.type == VkEventType.MESSAGE_NEW and event.to_me and Find_User(Id_Users, event.user_id):
                 reseived_message = event.text
                 sender = event.user_id
                 if reseived_message.lower() == "привет":
